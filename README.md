@@ -1,27 +1,59 @@
-# WeatherApp
+# Configurar y ejecutar el proyecto.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+## 1. Clonar el repositorio
 
-## Development server
+Si el proyecto está alojado en un repositorio, clónalo ejecutando el siguiente comando:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+git clone https://github.com/jose-paredes90/weather-app.git
 
-## Code scaffolding
+Una vez clonado, accede al directorio del proyecto:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+cd weather-app
 
-## Build
+## 2. Instalar las dependencias
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Instala las dependencias necesarias para la aplicación ejecutando:
 
-## Running unit tests
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Esto descargará todas las dependencias especificadas en el archivo package.json.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 3. Levantar el servidor de desarrollo
 
-## Further help
+Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**ng serve**
+
+Por defecto, la aplicación estará disponible en:
+
+http://localhost:4200/
+
+## 4. Verificar la aplicación
+
+Abre un navegador web y accede a la URL donde está corriendo tu aplicación (por defecto, http://localhost:4200/).
+
+## 5. Ejecutar pruebas unitarias
+
+La aplicación incluye pruebas unitarias, puedes ejecutarlas con:
+
+**ng test**
+
+
+# Integración con WeatherAPI
+
+La integración con WeatherAPI se maneja en el servicio **WeatherService**. Utilizamos el módulo HttpClient de Angular para realizar solicitudes HTTP a la API de WeatherAPI y enviamos la **API_KEY** correspondiente.
+
+Para la búsqueda de ciudades utilizo el servicio **search.json** y para mostrar la información del clima **current.json**.
+
+Optimizaciones realizadas
+
+1. Utilicé operadores de RxJS como **debounceTime** y **distinctUntilChanged** en el componente **WeatherSearchComponent** para optimizar las solicitudes de búsqueda y evitar llamadas innecesarias a la API.
+
+2. Implementé servicios como FavoritesService y HistoryService para almacenar en caché los datos de favoritos e historial en **localStorage**, reduciendo la necesidad de realizar solicitudes repetidas a la API.
+
+3. Se desarrolló un componente de tabla (DataTableComponent) que incluye **paginación**, **acciones personalizables** y es reutilizable para el historial y favoritos.
+
+4. Se separaron las funcionalidades en módulos específicos **(WeatherModule, FavoritesModule, HistoryModule)** para mantener una estructura modular y escalable.
+
+

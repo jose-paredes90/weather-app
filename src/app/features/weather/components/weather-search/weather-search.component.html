@@ -1,4 +1,5 @@
 <div class="weather-search">
+  <app-loading [loading]="loading"></app-loading>
   <div class="weather-search__info">
     <mat-form-field class="weather-search__info-input">
       <mat-label>Ingrese la ciudad</mat-label>
@@ -17,10 +18,12 @@
    
     <div *ngIf="currentWeather" class="weather-search__info-details">
       <button class="data-button"
-      (click)="addFavorite(currentWeather)">
-      <mat-icon>favorite_border</mat-icon>
-      <span>Agregar a favoritos</span>
-    </button>
+        (click)="addFavorite(currentWeather)">
+          <mat-icon [ngClass]="{'isFavorite': isFavorite}">
+            {{ isFavorite ? 'favorite' : 'favorite_border'}}
+          </mat-icon>
+        <span>Agregar a favoritos</span>
+      </button>
       <h4 class="title">Detalle del clima</h4>
       <p class="temperature">
         Temperatura: {{ temperatureC }} / {{ temperatureF }}
@@ -35,19 +38,17 @@
       </p>
       <div class="mobile">
         <p>
-          Ciudad: {{currentWeather.location.name}}
+          Ciudad: {{currentWeather.location.name}} {{currentWeather.location.localtime | date: 'dd/MM/YYYY hh:mm'}}
         </p>
-        <p>
-          Fecha: {{currentWeather.location.localtime }}
-        </p>
-        <p>
-          Condición: {{ currentWeather.current.condition.text }}
-        </p>
-        <img
-          class="icon"
-          [src]="currentWeather.current.condition.icon"
-          alt="Weather icon"
-        />
+        <div class="icon">
+          <img
+            [src]="currentWeather.current.condition.icon"
+            alt="Weather icon"
+          />
+          <div>
+            {{ currentWeather.current.condition.text }}
+          </div>
+        </div>
       </div>
 
     </div>

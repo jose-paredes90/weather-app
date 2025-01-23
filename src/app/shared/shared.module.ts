@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataTableComponent, NavbarComponent, ConfirmationComponent, WeatherResultComponent } from './components';
+import { DataTableComponent, NavbarComponent, ConfirmationComponent, WeatherResultComponent, LoadingComponent } from './components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MATERIAL } from './material';
@@ -10,7 +10,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 @NgModule({
   declarations: [
     WeatherResultComponent,
-    DataTableComponent, ConfirmationComponent, NavbarComponent],
+    DataTableComponent, ConfirmationComponent, NavbarComponent, LoadingComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,7 +24,8 @@ import { provideClientHydration } from '@angular/platform-browser';
     FormsModule,
     ReactiveFormsModule,
     ...MATERIAL,
-    WeatherResultComponent
+    WeatherResultComponent,
+    LoadingComponent
   ],
   providers: [
     provideClientHydration(),
