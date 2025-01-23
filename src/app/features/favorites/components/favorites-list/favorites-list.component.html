@@ -1,0 +1,11 @@
+<div class="favorites">
+  <h1 class="favorites__title">Favorites</h1>
+  <div class="favorites__list">
+    <app-data-table 
+      [data]="favoritesList" 
+      [displayedColumns]="columns"
+      [favorite]="true"
+      (onDelete)="onDelete($event)">
+  </app-data-table>
+  </div>
+</div>

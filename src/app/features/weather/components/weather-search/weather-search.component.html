@@ -1,0 +1,60 @@
+<div class="weather-search">
+  <div class="weather-search__info">
+    <mat-form-field class="weather-search__info-input">
+      <mat-label>Ingrese la ciudad</mat-label>
+      <input matInput [formControl]="searchControl">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="weather-search__info-suggestions">
+      <ng-container *ngIf="(suggestions$ | async) as suggestions">
+        <div class="suggestions-item" *ngFor="let suggestion of suggestions" 
+          (click)="onCitySelected(suggestion.name)">
+          <span class="name">{{ suggestion.name }}</span>
+        </div>
+      </ng-container>
+    </div>
+   
+    <div *ngIf="currentWeather" class="weather-search__info-details">
+      <button class="data-button"
+      (click)="addFavorite(currentWeather)">
+      <mat-icon>favorite_border</mat-icon>
+      <span>Agregar a favoritos</span>
+    </button>
+      <h4 class="title">Detalle del clima</h4>
+      <p class="temperature">
+        Temperatura: {{ temperatureC }} / {{ temperatureF }}
+      </p>
+      <p class="wind">
+        <mat-icon>air</mat-icon>
+        Velocidad del viento: {{ currentWeather.current.wind_kph }} kph
+      </p>
+      <p class="humidity">
+        <mat-icon>opacity</mat-icon>
+        Humedad: {{ currentWeather.current.humidity }}%
+      </p>
+      <div class="mobile">
+        <p>
+          Ciudad: {{currentWeather.location.name}}
+        </p>
+        <p>
+          Fecha: {{currentWeather.location.localtime }}
+        </p>
+        <p>
+          Condición: {{ currentWeather.current.condition.text }}
+        </p>
+        <img
+          class="icon"
+          [src]="currentWeather.current.condition.icon"
+          alt="Weather icon"
+        />
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="weather-data">
+    <app-weather-data [currentWeather]="currentWeather"></app-weather-data>
+  </div>
+</div>

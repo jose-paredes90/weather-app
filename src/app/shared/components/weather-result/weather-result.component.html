@@ -1,0 +1,36 @@
+<div *ngIf="weatherItem" class="weather-card">
+  <div class="weather-card__favorite-container">
+    <button class="weather-card__favorite-btn" *ngIf="favorite" 
+      (click)="addFavorite(weatherItem)">
+      <mat-icon>favorite_border</mat-icon>
+      <span>Agregar a favoritos</span>
+    </button>
+  </div>
+  
+  <div class="weather-card__header">
+    <div class="weather-card__header-place">
+      <h2 class="location">{{ weatherItem.location.name }}</h2>
+      <p class="time">{{ weatherItem.location.localtime }}</p>
+    </div>
+    <img
+      class="weather-icon"
+      [src]="weatherItem.current.condition.icon"
+      alt="Weather icon"
+    />
+  </div>
+  
+  <p class="condition">{{ weatherItem.current.condition.text }}</p>
+  <hr />
+  <p class="temperature">
+    <mat-icon>wb_sunny</mat-icon>
+    Temperatura: {{ temperatureC }} / {{ temperatureF }}
+  </p>
+  <p class="wind">
+    <mat-icon>air</mat-icon>
+    Velocidad del viento: {{ weatherItem.current.wind_kph }} kph
+  </p>
+  <p class="humidity">
+    <mat-icon>opacity</mat-icon>
+    Humedad: {{ weatherItem.current.humidity }}%
+  </p>
+</div>

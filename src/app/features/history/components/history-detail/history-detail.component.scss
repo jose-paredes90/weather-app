@@ -1,0 +1,12 @@
+.history {
+    margin-left: 20px;
+    &__button {
+        margin-left: 1.5rem;
+        .mat-icon {
+            color: white;
+        }
+        p {
+            color: white;
+        }
+    }
+}

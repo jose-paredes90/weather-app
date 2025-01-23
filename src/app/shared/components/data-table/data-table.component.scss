@@ -1,0 +1,85 @@
+.datatable-component {
+  overflow-x: auto;
+
+  border-radius: 10px;
+  mat-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #212124 !important;
+
+    mat-header-cell {
+      font-weight: bold;
+      text-align: center;
+      color: white;
+    }
+
+    mat-cell {
+      text-align: center;
+      padding: 8px;
+      color: white;
+
+      &.sunny {
+        background-color: #fffde7;
+      }
+
+      &.rainy {
+        background-color: #e3f2fd;
+      }
+
+      &.cloudy {
+        background-color: #f5f5f5;
+      }
+    }
+
+    mat-row:hover mat-cell {
+      background-color: #30323563;
+    }
+  }
+
+  mat-icon {
+    font-size: 20px;
+    margin-right: 8px;
+    color: white;
+  }
+
+  mat-paginator {
+    margin-top: 16px;
+    background-color: #212124 !important;
+    color: white !important;
+  }
+  
+
+  @media (max-width: 768px) {
+    mat-header-cell,
+    mat-cell {
+      padding: 4px;
+      font-size: 14px;
+    }
+
+    mat-icon {
+      font-size: 16px;
+      margin-right: 4px;
+    }
+
+    mat-paginator {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    mat-header-cell,
+    .mat-cell {
+      padding: 2px;
+      font-size: 12px;
+    }
+
+    mat-icon {
+      font-size: 14px;
+      margin-right: 2px;
+    }
+
+    mat-paginator {
+      font-size: 10px;
+    }
+  }
+}

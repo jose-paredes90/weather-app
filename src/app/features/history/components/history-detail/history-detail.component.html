@@ -1,0 +1,9 @@
+<div class="history">
+    <button mat-button (click)="back()" class="history__button">
+        <mat-icon class="history__cursor-pointer">arrow_back</mat-icon>
+        <p [ngStyle]="{'color': 'white'}">Back</p>
+    </button>
+    
+    <app-weather-result [weatherItem]="weatherItem"></app-weather-result>
+</div>
+

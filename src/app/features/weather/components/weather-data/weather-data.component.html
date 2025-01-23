@@ -1,0 +1,19 @@
+<div class="weather-search__data" *ngIf="currentWeather">
+    <div class="weather-search__data-temperature">
+      <div class="weather-search__data-temperature_number">
+        {{currentWeather.current.temp_c}}°
+      </div>
+      <div class="weather-search__data-temperature_text">
+        <h3 class="location">{{ currentWeather.location.name }}</h3>
+        <p class="time">{{ currentWeather.location.localtime }}</p>
+      </div>
+      <div>
+        <img
+          class="weather-search__data-temperatur_-icon"
+          [src]="currentWeather.current.condition.icon"
+          alt="Weather icon"
+        />
+        <p class="condition">{{ currentWeather.current.condition.text }}</p>
+      </div>
+    </div>
+  </div>

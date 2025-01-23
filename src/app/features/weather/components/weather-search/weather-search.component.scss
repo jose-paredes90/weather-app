@@ -1,0 +1,105 @@
+.weather-search {
+  &__info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(53, 53, 53, .5);
+    width: 400px;
+    @media (max-width: 760px) {
+      width: 100%;
+    }
+
+    &-input {
+      margin-top: 20px;
+      width: calc(100% - 40px);
+      padding: 30px 20px 10px;
+    }
+
+    &-suggestions {
+      min-height: 200px;
+      max-height: 200px;
+      overflow-y: auto;
+      border-bottom: 1px solid #5a5a5a;
+      padding-bottom: 10px;
+      .suggestions-item {
+        padding: 10px 20px;
+        color: #fff;
+        cursor: pointer;
+        &:hover {
+          opacity: .5;
+        }
+      }
+    }
+
+    &-details {
+      color: #fff;
+      padding: 18px;
+      position: relative;
+
+      .title {
+        margin: 0;
+      }
+
+      .data-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgb(77 72 72 / 15%);
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 0.875rem;
+        backdrop-filter: blur(4px);
+        transition: all 0.2s ease;
+        margin-bottom: 18px;
+
+        @media (max-width: 460px) {
+          width: 100%; 
+          flex-direction: column;
+          align-items: center;
+          padding: 1rem;
+        }
+
+        @media (max-width: 760px) and (min-width: 460px) {
+          width: auto; 
+          flex-direction: row; 
+          align-items: center;
+          padding: 0.75rem 1.25rem; 
+        }
+
+        @media (min-width: 760px) {
+          margin-left: auto;  
+        }
+      }
+
+      .mobile {
+        display: none;
+        @media (max-width: 760px) {
+          display: block;
+        }
+      }
+
+      .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        .mat-icon {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
+  .weather-data {
+    @media (max-width: 760px) {
+      display: none;
+    }
+  }
+}

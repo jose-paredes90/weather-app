@@ -1,0 +1,43 @@
+.mat-nav {
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  &__container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    &-logo {
+      display: flex;
+      align-items: center;
+      margin-right: 24px;
+    
+      .brand-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        .brand-text {
+          font-size: 20px;
+          font-weight: 500;
+        }
+      }
+    }
+  
+    &-links {
+      display: flex;
+      gap: 8px;
+    
+      .nav-link {
+        color:  white;
+        font-weight: 400;
+    
+        &:hover {
+          background-color: #161617f4;
+        }
+      }
+    }
+  }
+}
+
+

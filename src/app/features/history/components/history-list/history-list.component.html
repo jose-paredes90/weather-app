@@ -1,0 +1,13 @@
+<div class="history">
+  <h1 class="history__title">History</h1>
+  <div class="history__list">
+    <app-data-table 
+      [data]="historyList" 
+      [displayedColumns]="columns"
+      [favorite]="false"
+      (onReconsult)="onReconsult($event)"
+      (onDelete)="onDelete($event)"
+      (onDetail)="onDetail($event)">
+  </app-data-table>
+  </div>
+</div>
